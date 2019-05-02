@@ -1,11 +1,11 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2018.10.14)  8 MAR 2019 17:22
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2018.10.12)  3 APR 2019 09:17
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
 **Homework6.tex
 (./Homework6.tex
 LaTeX2e <2016/02/01>
-Babel <3.9q> and hyphenation patterns for 81 language(s) loaded.
+Babel <3.9q> and hyphenation patterns for 5 language(s) loaded.
 (/usr/share/texlive/texmf-dist/tex/latex/base/article.cls
 Document Class: article 2014/09/29 v1.4h Standard LaTeX document class
 (/usr/share/texlive/texmf-dist/tex/latex/base/size10.clo
@@ -500,105 +500,24 @@ e
 ))
 [1
 
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [1]
-</media/mattcooper/64EC-62D6/RadioAstronomy/Homework6/UVPlotDec0.jpeg, id=19, 7
-00.75133pt x 362.42067pt>
-File: /media/mattcooper/64EC-62D6/RadioAstronomy/Homework6/UVPlotDec0.jpeg Grap
-hic file (type jpg)
-
-<use /media/mattcooper/64EC-62D6/RadioAstronomy/Homework6/UVPlotDec0.jpeg>
-Package pdftex.def Info: /media/mattcooper/64EC-62D6/RadioAstronomy/Homework6/U
-VPlotDec0.jpeg used on input line 63.
-(pdftex.def)             Requested size: 350.3748pt x 181.20988pt.
-
-Overfull \hbox (20.3748pt too wide) in paragraph at lines 63--64
-[][] 
- []
-
-
-</media/mattcooper/64EC-62D6/RadioAstronomy/Homework6/UVPlotDec13.jpeg, id=20, 
-700.75133pt x 362.42067pt>
-File: /media/mattcooper/64EC-62D6/RadioAstronomy/Homework6/UVPlotDec13.jpeg Gra
-phic file (type jpg)
-
-<use /media/mattcooper/64EC-62D6/RadioAstronomy/Homework6/UVPlotDec13.jpeg>
-Package pdftex.def Info: /media/mattcooper/64EC-62D6/RadioAstronomy/Homework6/U
-VPlotDec13.jpeg used on input line 66.
-(pdftex.def)             Requested size: 350.3748pt x 181.20988pt.
-
-Overfull \hbox (20.3748pt too wide) in paragraph at lines 66--67
-[][] 
- []
-
-[2 </media/mattcooper/64EC-62D6/RadioAstronomy/Homework6/UVPlotDec0.jpeg>]
-</media/mattcooper/64EC-62D6/RadioAstronomy/Homework6/Decimated0Decl.jpeg, id=2
-5, 569.88814pt x 294.7397pt>
-File: /media/mattcooper/64EC-62D6/RadioAstronomy/Homework6/Decimated0Decl.jpeg 
-Graphic file (type jpg)
-
-<use /media/mattcooper/64EC-62D6/RadioAstronomy/Homework6/Decimated0Decl.jpeg>
-Package pdftex.def Info: /media/mattcooper/64EC-62D6/RadioAstronomy/Homework6/D
-ecimated0Decl.jpeg used on input line 79.
-(pdftex.def)             Requested size: 284.94337pt x 147.36948pt.
-
-[3 </media/mattcooper/64EC-62D6/RadioAstronomy/Homework6/UVPlotDec13.jpeg>]
-</media/mattcooper/64EC-62D6/RadioAstronomy/Homework6/Decimated13Decl.jpeg, id=
-29, 569.88814pt x 294.7397pt>
-File: /media/mattcooper/64EC-62D6/RadioAstronomy/Homework6/Decimated13Decl.jpeg
- Graphic file (type jpg)
-
-<use /media/mattcooper/64EC-62D6/RadioAstronomy/Homework6/Decimated13Decl.jpeg>
-Package pdftex.def Info: /media/mattcooper/64EC-62D6/RadioAstronomy/Homework6/D
-ecimated13Decl.jpeg used on input line 82.
-(pdftex.def)             Requested size: 284.94337pt x 147.36948pt.
-
-</media/mattcooper/64EC-62D6/RadioAstronomy/Homework6/UniNat.jpeg, id=30, 650.4
-3pt x 433.62pt>
-File: /media/mattcooper/64EC-62D6/RadioAstronomy/Homework6/UniNat.jpeg Graphic 
-file (type jpg)
-
-<use /media/mattcooper/64EC-62D6/RadioAstronomy/Homework6/UniNat.jpeg>
-Package pdftex.def Info: /media/mattcooper/64EC-62D6/RadioAstronomy/Homework6/U
-niNat.jpeg used on input line 93.
-(pdftex.def)             Requested size: 325.2142pt x 216.80946pt.
- [4 </media/mattcooper/64EC-62D6/RadioAstronomy/Homework6/Decimated0Decl.jpeg> 
-</media/mattcooper/64EC-62D6/RadioAstronomy/Homework6/Decimated13Decl.jpeg>]
-</media/mattcooper/64EC-62D6/RadioAstronomy/Homework6/6PanelNat.jpeg, id=34, 65
-0.43pt x 433.62pt>
-File: /media/mattcooper/64EC-62D6/RadioAstronomy/Homework6/6PanelNat.jpeg Graph
-ic file (type jpg)
-
-<use /media/mattcooper/64EC-62D6/RadioAstronomy/Homework6/6PanelNat.jpeg>
-Package pdftex.def Info: /media/mattcooper/64EC-62D6/RadioAstronomy/Homework6/6
-PanelNat.jpeg used on input line 95.
-(pdftex.def)             Requested size: 325.2142pt x 216.80946pt.
-
-[5 </media/mattcooper/64EC-62D6/RadioAstronomy/Homework6/UniNat.jpeg> </media/m
-attcooper/64EC-62D6/RadioAstronomy/Homework6/6PanelNat.jpeg>] (./Homework6.aux)
- ) 
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [1] (./Homework6.aux) ) 
 Here is how much of TeX's memory you used:
- 2416 strings out of 493029
- 32290 string characters out of 6136233
- 97447 words of memory out of 5000000
- 5923 multiletter control sequences out of 15000+600000
- 8111 words of font info for 30 fonts, out of 8000000 for 9000
- 1141 hyphenation exceptions out of 8191
- 38i,6n,23p,1611b,197s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></us
-r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/shar
-e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texl
-ive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/share/texlive/tex
-mf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist
-/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/
-type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/p
-ublic/amsfonts/cm/cmr17.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/a
-msfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/
-cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cms
-y7.pfb>
-Output written on Homework6.pdf (6 pages, 661887 bytes).
+ 2382 strings out of 494910
+ 30349 string characters out of 6179835
+ 87758 words of memory out of 5000000
+ 5653 multiletter control sequences out of 15000+600000
+ 7657 words of font info for 28 fonts, out of 8000000 for 9000
+ 36 hyphenation exceptions out of 8191
+ 38i,6n,23p,858b,197s stack positions out of 5000i,500n,10000p,200000b,80000s
+</u
+sr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/sha
+re/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texl
+ive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/tex
+mf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb>
+Output written on Homework6.pdf (2 pages, 55439 bytes).
 PDF statistics:
- 73 PDF objects out of 1000 (max. 8388607)
- 47 compressed objects within 1 object stream
+ 27 PDF objects out of 1000 (max. 8388607)
+ 18 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 31 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1 words of extra memory for PDF output out of 10000 (max. 10000000)
 
