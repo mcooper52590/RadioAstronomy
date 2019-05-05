@@ -43,7 +43,6 @@ for i in range(500, 600):
     signal1[i] = signal1[i] + .1*sin(.1*i) + (2*rand() - 2*rand())/2
     signal2[i-200] = signal2[i] + .1*sin(.1*i) + (2*rand() - 2*rand())/2
 
-
 correl = corr(signal1, signal2, 'full')
 coeffs = generate_win_coeffs(32,8)
 t2 = np.linspace(-10,10,1999)
