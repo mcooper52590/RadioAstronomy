@@ -54,8 +54,12 @@ fig, axes = plt.subplots(2, 2, sharex=False, sharey=False, figsize=(17,12), dpi=
 N = int(1e4)
 freqs = np.fft.fftfreq(N, d=samSpc)
 wind = sig.windows.blackmanharris(N)
-fftSig = fft(FDMSig[:N,0])
-fftSigWin = fft(wind*FDMSig[:N,0])
+
+zeroSig = FDMSig[:N,0]
+zeroSig[:100] = 0
+zeroSig[zeroSig.shape[0]-100:] = 0
+fftSig = fft(zeroSig)
+fftSigWin = fft(wind*zeroSig)
 
 axes[0,0].set_title('Time Domain')
 axes[0,0].set_title('Frequency Domain')
@@ -63,15 +67,15 @@ axes[0,0].plot(tpad[:N], FDMSig[:N,0], color='black')
 axes[0,0].set_xticklabels([])
 axes[0,0].tick_params(left="off")
 
-axes[1,0].plot(tpad[:N], wind*FDMSig[:N,0], color='black')
+axes[1,0].plot(tpad[:N], wind*zeroSig, color='black')
 
-axes[0,1].plot(freqs, np.abs(fftSig), color='black')
-axes[0,1].set_xlim(4950,5250)
+axes[0,1].plot(freqs, np.abs(fftSig), color='black', linewidth=.2)
+#axes[0,1].set_xlim(4500,5750)
 axes[0,1].set_yticklabels([])
 axes[0,1].tick_params(left="off")
 
-axes[1,1].plot(freqs, np.abs(fftSigWin), color='black')
-axes[1,1].set_xlim(4950,5250)
+axes[1,1].plot(freqs, np.abs(fftSigWin), color='black', linewidth=.2)
+#axes[1,1].set_xlim(4500,5750)
 axes[1,1].set_yticklabels([])
 axes[1,1].tick_params(left="off")
 

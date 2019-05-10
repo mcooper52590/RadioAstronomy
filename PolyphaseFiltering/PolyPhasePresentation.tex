@@ -198,7 +198,9 @@ and we have accomplished the same convolution, but now the unnecessary calculati
 
 \begin{frame}
 \frametitle{Wrapping It Up}
-Here I gave an example of how to use a polyphase filter bank to lowpass and decimate a signal. Combined with an array of reference oscillators, this becomes an incredibly efficient channelizer.  One powerful feature we didn't discuss was side lobe decibel knockdown.   
+Here I gave an example of how to use a polyphase filter bank to lowpass and decimate a signal. Combined with an array of reference oscillators, this becomes an incredibly efficient channelizer.  One powerful feature we didn't discuss was its effect on Gibbs ringing (side lobes). 
+
+\includegraphics[scale=.55]{Figure_6.pdf}
 \end{frame}
 
 \begin{frame}
@@ -206,7 +208,7 @@ Here I gave an example of how to use a polyphase filter bank to lowpass and deci
 \frametitle{But Don't Windows Do That?}
 It is quite common to multiply a signal by a windowing function before feeding it to an FFT in order to minimize the presence of side lobes in the spectra.  This comes at the price of frequency resolution.
 
-\includegraphics[scale=.55]{Figure_6.pdf}
+
 \end{frame}
 \begin{frame}
 \frametitle{The End}

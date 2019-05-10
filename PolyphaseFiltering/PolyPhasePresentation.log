@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2019.4.5)  7 MAY 2019 18:11
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2019.4.5)  9 MAY 2019 14:27
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1254,22 +1254,21 @@ Overfull \hbox (7.86263pt too wide) in paragraph at lines 144--144
 
 ] [16
 
-] [17
-
 ]
-<Figure_6.pdf, id=572, 565.53453pt x 295.61041pt>
+<Figure_6.pdf, id=547, 528.09343pt x 321.29674pt>
 File: Figure_6.pdf Graphic file (type pdf)
 <use Figure_6.pdf>
-Package pdftex.def Info: Figure_6.pdf  used on input line 210.
-(pdftex.def)             Requested size: 311.04495pt x 162.58621pt.
+Package pdftex.def Info: Figure_6.pdf  used on input line 204.
+(pdftex.def)             Requested size: 290.45229pt x 176.71375pt.
 
-Overfull \hbox (3.75508pt too wide) in paragraph at lines 210--210
-[][]  
+Overfull \vbox (2.17815pt too high) detected at line 204
  []
 
-[18
+[17
 
- <./Figure_6.pdf>] [19
+ <./Figure_6.pdf>] [18
+
+] [19
 
 ]
 \tf@nav=\write6
@@ -1281,11 +1280,11 @@ Overfull \hbox (3.75508pt too wide) in paragraph at lines 210--210
 \tf@snm=\write8
 \openout8 = `PolyPhasePresentation.snm'.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 216.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 216.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 218.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 218.
  (./PolyPhasePresentation.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 216.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 216.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 218.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 218.
 Package rerunfilecheck Info: File `PolyPhasePresentation.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
@@ -1310,7 +1309,7 @@ fonts/cm/cmssi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts
 /cm/cmssi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cm
 ssi9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.p
 fb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb>
-Output written on PolyPhasePresentation.pdf (19 pages, 421579 bytes).
+Output written on PolyPhasePresentation.pdf (19 pages, 424993 bytes).
 PDF statistics:
  708 PDF objects out of 1000 (max. 8388607)
  551 compressed objects within 6 object streams

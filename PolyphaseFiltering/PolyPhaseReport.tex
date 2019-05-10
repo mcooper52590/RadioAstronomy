@@ -1,18 +1,45 @@
-\documentclass{article}
+\documentclass{report}
 \usepackage[utf8]{inputenc}
 \usepackage{graphicx}
 \usepackage{amsmath}
+\usepackage{indentfirst}
 
 \title{Polyphase Filter Banks: A Physicist's Attempt}
 \author{Matthew Cooper}
 \date{Sometime in May, 2019}
 \begin{document}
 \maketitle
-\begin{abstract}
-This report was written for Dr. Dale Gary's Physics 728: Radio Astronomy as a class project, with the goal of explaining what polyphase filter banks are, how they work, and how they help us unlock the secrets of the universe by staring at pretty things in the sky.   
-\end{abstract}
+
+\tableofcontents{}
 
 \newpage
-It feels necessary to begin with the statement that my learning of electrical engineering has been a shooting gallery of interesting ideas.  Thus, this project will read more as a stream of consciousness as I attempt to fill in the gaps in my understanding.  As such, this will read much like a question and answer session, with each section being devoted to the first question I came across along the trail of understanding.  To begin, a stroll through some basic digital signal processing fundamentals    
+\chapter{Introduction}
+
+In the modern era, the speed of digital processing components has made it such that the gap between digital and analog is becoming ever smaller, allowing us the advantages that come with conversion of analog signals to digital signals.  These advantages are numerous, but, as with anything, there is an equivalent exchange, and there are tradeoffs in using digital signals which, if not taken into account, can turn a scientific data product into something completely unusable.
+
+In my researching of this subject, it became clear early on that my understanding of the fundamentals that go into digital signal processing (DSP hereafter) were not up to par, which resulted in several hours of researching different aspects of DSP in order to complete the mental picture I needed.  It is my goal in the pages of this report to recreate, as best I can, this journey, making pitstops at different ideas that helped shape my current, albeit incomplete understanding.  
+
+The first reference I was able to find for polyphase filter bank implementation was a paper from 1973 (Schafer and Rabiner, 1973).  In this paper, however, the term polyphase had not been coined yet.  Its original implementation was to increase resolution of frequency channels for speech analysis and synthesis.  Not suprising, this came out of Bell Labs.  We'll discuss this paper in greater detail when we come to the theory side of things.
+
+Although it started as a method of reconstructing speech output, the applications of polyphase filter banks has found use in almost all areas where channelization is required, such as cell phone signal downconversion and up conversion (Harris, 2003), as well as being considered for implementation in the Extended Owens Valley Solar Array(CITE).  
+
+\chapter{Fundamentals of Digital Signals}
+\section{Analog Vs. Digital}
+
+The filtering and manipulation of analog signals has been widely used for decades.  Why, then, is there the push for analog-to-digital conversion?  For systems where the average power of a signal is the only necessity, staying in the analog domain is perfectly acceptable.  The issue arises when a system also needs to accurately measure and record phase information.  In analog systems, the gain to phase balance of a signal cannot be maintained to better than $1\%$ over a range of temperatures (Harris, 2003).  This is particularily crippling for a multi-antennae radio array, which relies on phase-locking between antennae in order to steer the antennae beam.  Since no two antennae's analog components can match identically, leaving the signal in the analog domain can produce spurious phase shifts, which are functions of many variables which cannot be accounted for simply, if at all.  This is where analog-to-digital conversion is helpful, since the phase information stored in a digital signal is not subject to environmental effects.  
+%Insert figure with two signals with 1% phase uncertainty and plot phase center deviation
+
+\section{Analog Signal Sampling}
+\section{Frequency Resolution}
+\section{Z-transform, Fourier Transform, and FFT}
+\section{Window Functions}
+\section{Digital Signal Filters}
+\section{Downsampling and Downconversion}
+
+\chapter{Polyphase Implementation}
+\section{Multi-tap Decomposition}
+\section{Relation to Direct Convolution}
+\section{Hardware Implementation}
+ 
 
 \end{document}
