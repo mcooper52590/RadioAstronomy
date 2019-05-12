@@ -64,9 +64,9 @@ sigDown = carrySig*FDMSig[:,0]
 #axes[0,0].plot(tpad, FDMSig[:,0], linewidth=.3, color='black') 
 #axes[1,0].plot(tpad, carrySig, linewidth=.3, color='black') 
 #axes[2,0].plot(tpad, sigDown, linewidth=.3, color='black')
-#axes[0,0].set_xlim(0,.02)
+#axes[0,0].set_xlim(.002,.016)
 #axes[1,0].set_xlim(0,.005)
-#axes[2,0].set_xlim(0,.02)
+#axes[2,0].set_xlim(.002,.016)
 #
 #N = 64*4096
 #hN = int(N/2)
@@ -94,23 +94,20 @@ sigDown = carrySig*FDMSig[:,0]
 fig, axes = plt.subplots(2, 2, sharex=False, sharey=False, figsize=(17,12), dpi=166)
 
 wNy = cta(fNy)
-ubp = cta(6500)/wNy
-ubs = cta(ubp + 2000)/wNy
-N, Wn = sig.buttord(ubp, ubs, .01, 100, False, fs = sampleFreq)
+ubp = cta(10000)/wNy
+ubs = cta(12500)/wNy
+N, Wn = sig.buttord(ubp, ubs, .01, 100, False)
 b, a = sig.butter(N, Wn, 'lowpass', False)
-filtSig = sig.lfilter(b, a, sigDown)
-filtfiltSig = sig.filtfilt(b, a, sigDown)
+filtSigDown = sig.lfilter(b, a, sigDown)
 
 axes[0,0].set_title('Down-converted')
 axes[0,0].plot(tpad, sigDown, linewidth=.3, color='black')
-axes[0,0].plot(tpad, filtSig, linewidth=.3, color='black')
 axes[0,0].set_xlim(5,5.025)
 axes[0,0].set_xticklabels([])
 axes[0,0].tick_params(bottom="off")
 
 axes[1,0].set_title('Downconverted and Filtered')
-axes[1,0].plot(tpad, sigDown, linewidth=.3, color='black')
-axes[1,0].plot(tpad, filtfiltSig, linewidth=.3, color='black')
+axes[1,0].plot(tpad, filtSigDown, linewidth=.3, color='black')
 axes[1,0].set_xlim(5,5.025)
 axes[1,0].set_xticklabels([])
 axes[1,0].tick_params(bottom="off")
@@ -119,14 +116,14 @@ fig.subplots_adjust(hspace=.45)
 N = 64*4096
 hN = int(N/2)
 freqs = np.fft.fftfreq(N, samSpc)
-filtSigFFT = fft(filtSig[:N])
-axes[0,1].plot(freqs[:hN], np.abs(filtSigFFT)[:hN], linewidth=.1, color='black')
+sigDownFFT = fft(sigDown)
+axes[0,1].plot(freqs[:hN], np.abs(sigDownFFT)[:hN], linewidth=.1, color='black')
 axes[0,1].set_yticklabels([])
 axes[0,1].tick_params(left="off")
 axes[0,1].set_title('Downconverted')
 
-filtfiltSigFFT = fft(filtfiltSig[:N])
-axes[1,1].plot(freqs[:hN], np.abs(filtfiltSigFFT)[:hN], linewidth=.1, color='black')
+filtSigDownFFT = fft(filtSigDown[:N])
+axes[1,1].plot(freqs[:hN], np.abs(filtSigDownFFT)[:hN], linewidth=.1, color='black')
 axes[1,1].set_yticklabels([])
 axes[1,1].tick_params(left="off")
 axes[1,1].set_title('Downconverted and Filtered')
