@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2019.4.5)  13 MAY 2019 11:06
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2019.4.5)  13 MAY 2019 11:07
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -995,7 +995,7 @@ Package: booktabs 2016/04/27 v1.618033 publication quality tables
 \@lastruleclass=\count158
 \@thisrulewidth=\dimen261
 )
-(./PolyPhasePresentation.aux)
+No file PolyPhasePresentation.aux.
 \openout1 = `PolyPhasePresentation.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 13.
@@ -1012,7 +1012,6 @@ LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 13.
 LaTeX Font Info:    ... okay on input line 13.
 LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 13.
 LaTeX Font Info:    ... okay on input line 13.
-
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
 *geometry* verbose mode - [ preamble ] result:
@@ -1092,8 +1091,6 @@ Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 LaTeX Info: Redefining \ref on input line 13.
 LaTeX Info: Redefining \pageref on input line 13.
 LaTeX Info: Redefining \nameref on input line 13.
-
-(./PolyPhasePresentation.out) (./PolyPhasePresentation.out)
 \@outlinefile=\write5
 \openout5 = `PolyPhasePresentation.out'.
 
@@ -1163,16 +1160,28 @@ Dictionary: translator-numbers-dictionary, Language: English
 (/usr/share/texlive/texmf-dist/tex/latex/translator/translator-theorem-dictiona
 ry-English.dict
 Dictionary: translator-theorem-dictionary, Language: English 
-) (./PolyPhasePresentation.nav) [1
+)
+No file PolyPhasePresentation.nav.
+[1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
-<Figure_1.png, id=44, 1175.89313pt x 467.49657pt>
-File: Figure_1.png Graphic file (type png)
-<use Figure_1.png>
-Package pdftex.def Info: Figure_1.png  used on input line 24.
-(pdftex.def)             Requested size: 293.97256pt x 116.87386pt.
-LaTeX Font Info:    Try loading font information for U+msa on input line 24.
 
+LaTeX Warning: File `Figure_1.png' not found on input line 24.
+
+
+! Package pdftex.def Error: File `Figure_1.png' not found: using draft setting.
+
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.24 \end{frame}
+                
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+LaTeX Font Info:    Try loading font information for U+msa on input line 24.
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
@@ -1182,89 +1191,60 @@ LaTeX Font Info:    Try loading font information for U+msb on input line 24.
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) [2
 
- <./Figure_1.png>] [3
+] [3
 
 ]
+<Figure_2.pdf, id=96, 938.78732pt x 490.7133pt>
+File: Figure_2.pdf Graphic file (type pdf)
+<use Figure_2.pdf>
+Package pdftex.def Info: Figure_2.pdf  used on input line 38.
+(pdftex.def)             Requested size: 281.63837pt x 147.21512pt.
+ [4
 
-LaTeX Warning: File `Figure_2.pdf' not found on input line 38.
-
-
-! Package pdftex.def Error: File `Figure_2.pdf' not found: using draft setting.
-
-
-See the pdftex.def package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.38 \end{frame}
-                
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-[4
-
-] [5
+ <./Figure_2.pdf>] [5
 
 ]
+<Figure_3.pdf, id=188, 565.53453pt x 295.61041pt>
+File: Figure_3.pdf Graphic file (type pdf)
+<use Figure_3.pdf>
+Package pdftex.def Info: Figure_3.pdf  used on input line 64.
+(pdftex.def)             Requested size: 311.04495pt x 162.58621pt.
 
-LaTeX Warning: File `Figure_3.pdf' not found on input line 64.
-
-
-! Package pdftex.def Error: File `Figure_3.pdf' not found: using draft setting.
-
-
-See the pdftex.def package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.64 \end{frame}
-                
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
+Overfull \hbox (3.75508pt too wide) in paragraph at lines 64--64
+[]  
+ []
 
 [6
 
-]
+ <./Figure_3.pdf>]
+<Figure_4.pdf, id=227, 565.53453pt x 295.61041pt>
+File: Figure_4.pdf Graphic file (type pdf)
+<use Figure_4.pdf>
+Package pdftex.def Info: Figure_4.pdf  used on input line 71.
+(pdftex.def)             Requested size: 328.01025pt x 171.45415pt.
 
-LaTeX Warning: File `Figure_4.pdf' not found on input line 71.
-
-
-! Package pdftex.def Error: File `Figure_4.pdf' not found: using draft setting.
-
-
-See the pdftex.def package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.71 \end{frame}
-                
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
+Overfull \hbox (20.72038pt too wide) in paragraph at lines 71--71
+ [][] 
+ []
 
 [7
 
-] [8
+ <./Figure_4.pdf>] [8
 
 ]
+<Figure_5.pdf, id=309, 565.53453pt x 295.61041pt>
+File: Figure_5.pdf Graphic file (type pdf)
+<use Figure_5.pdf>
+Package pdftex.def Info: Figure_5.pdf  used on input line 82.
+(pdftex.def)             Requested size: 328.01025pt x 171.45415pt.
 
-LaTeX Warning: File `Figure_5.pdf' not found on input line 82.
-
-
-! Package pdftex.def Error: File `Figure_5.pdf' not found: using draft setting.
-
-
-See the pdftex.def package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.82 \end{frame}
-                
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
+Overfull \hbox (20.72038pt too wide) in paragraph at lines 82--82
+[]  
+ []
 
 [9
 
-] [10
+ <./Figure_5.pdf>] [10
 
 ] [11
 
@@ -1284,25 +1264,18 @@ Overfull \hbox (7.86263pt too wide) in paragraph at lines 144--144
 ] [16
 
 ]
+<Figure_6.pdf, id=543, 528.09343pt x 321.29674pt>
+File: Figure_6.pdf Graphic file (type pdf)
+<use Figure_6.pdf>
+Package pdftex.def Info: Figure_6.pdf  used on input line 204.
+(pdftex.def)             Requested size: 290.45229pt x 176.71375pt.
 
-LaTeX Warning: File `Figure_6.pdf' not found on input line 204.
-
-
-! Package pdftex.def Error: File `Figure_6.pdf' not found: using draft setting.
-
-
-See the pdftex.def package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.204 \end{frame}
-                 
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
+Overfull \vbox (2.17815pt too high) detected at line 204
+ []
 
 [17
 
-] [18
+ <./Figure_6.pdf>] [18
 
 ] [19
 
@@ -1321,14 +1294,21 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 218.
  (./PolyPhasePresentation.aux)
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 218.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 218.
-Package rerunfilecheck Info: File `PolyPhasePresentation.out' has not changed.
-(rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
+
+
+Package rerunfilecheck Warning: File `PolyPhasePresentation.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `PolyPhasePresentation.out':
+(rerunfilecheck)             Before: <no file>
+(rerunfilecheck)             After:  D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 17346 strings out of 494880
- 322291 string characters out of 6179602
- 397300 words of memory out of 5000000
- 20226 multiletter control sequences out of 15000+600000
+ 17311 strings out of 494880
+ 322152 string characters out of 6179602
+ 397146 words of memory out of 5000000
+ 20199 multiletter control sequences out of 15000+600000
  14819 words of font info for 55 fonts, out of 8000000 for 9000
  36 hyphenation exceptions out of 8191
  48i,14n,51p,815b,551s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1346,10 +1326,10 @@ fonts/cm/cmssi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts
 ssi9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.p
 fb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></us
 r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
-Output written on PolyPhasePresentation.pdf (19 pages, 265670 bytes).
+Output written on PolyPhasePresentation.pdf (19 pages, 345547 bytes).
 PDF statistics:
- 574 PDF objects out of 1000 (max. 8388607)
- 524 compressed objects within 6 object streams
+ 709 PDF objects out of 1000 (max. 8388607)
+ 553 compressed objects within 6 object streams
  39 named destinations out of 1000 (max. 500000)
- 48 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 68 words of extra memory for PDF output out of 10000 (max. 10000000)
 

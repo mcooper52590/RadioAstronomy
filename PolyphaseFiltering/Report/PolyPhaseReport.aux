@@ -6,15 +6,23 @@
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
 \@writefile{toc}{\contentsline {section}{\numberline {2.1}Analog Vs. Digital}{4}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2.1}{\ignorespaces Plotted above is an ideal signal which has had uncertainty introduced in its phase and amplitude profile.\relax }}{5}}
 \@writefile{toc}{\contentsline {section}{\numberline {2.2}Analog Signal Sampling}{5}}
 \@writefile{toc}{\contentsline {section}{\numberline {2.3}Downconversion}{6}}
-\@writefile{lof}{\contentsline {figure}{\numberline {2.1}{\ignorespaces (top) Signal $x_{in}$ in the time and frequency domain (middle) Signal $x_{lo}$ in time and frequency domain (bottom) Signal $x_{in}x_{lo}$ in the time and frequency domain\relax }}{7}}
-\@writefile{toc}{\contentsline {section}{\numberline {2.4}Digital Signal Filters}{7}}
-\@writefile{lof}{\contentsline {figure}{\numberline {2.2}{\ignorespaces Plotted above is the frequency responses for a Butterworth filter of low-pass type. The y-axis indicated the attenuation (in dB) of the different frequency components. The first dashed line indicated the end of the pass-band, and the second is the beginning of the stop band.\relax }}{8}}
-\@writefile{lof}{\contentsline {figure}{\numberline {2.3}{\ignorespaces Plotted above is the impulse response, h[n], for a Butterworth filter of low-pass type. The y-axis indicated the coefficient value.\relax }}{9}}
-\@writefile{toc}{\contentsline {chapter}{\numberline {3}Polyphase Implementation}{10}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2.2}{\ignorespaces (top) Signal $x_{in}$ in the time and frequency domain (middle) Signal $x_{lo}$ in time and frequency domain (bottom) Signal $x_{in}x_{lo}$ in the time and frequency domain\relax }}{7}}
+\@writefile{toc}{\contentsline {section}{\numberline {2.4}Digital Signal Filters}{8}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2.3}{\ignorespaces Plotted above is the frequency responses for a Butterworth filter of low-pass type. The y-axis indicated the attenuation (in dB) of the different frequency components. The first dashed line indicated the end of the pass-band, and the second is the beginning of the stop band.\relax }}{8}}
+\@writefile{toc}{\contentsline {section}{\numberline {2.5}Summary}{9}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2.4}{\ignorespaces Plotted above is the impulse response, h[n], for a Butterworth filter of low-pass type. The y-axis indicated the coefficient value.\relax }}{10}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2.5}{\ignorespaces (top) Downconverted signal and its Fourier Transform. (bottom) Downconverted and filtered signal and its Fourier Transform.\relax }}{10}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {3}Polyphase Implementation}{11}}
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\@writefile{toc}{\contentsline {section}{\numberline {3.1}Multi-tap Decomposition}{10}}
-\@writefile{toc}{\contentsline {section}{\numberline {3.2}Relation to Direct Convolution}{10}}
-\@writefile{toc}{\contentsline {section}{\numberline {3.3}Hardware Implementation}{10}}
+\@writefile{toc}{\contentsline {section}{\numberline {3.1}Theory}{11}}
+\@writefile{toc}{\contentsline {section}{\numberline {3.2}2-tap Example}{11}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.1}{\ignorespaces The above table represents the computations necessary to implement a direction convolution. Each column in the table is summed to create the $y_i$ coefficients at the bottom.\relax }}{12}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.2}{\ignorespaces In the above left column are the coefficients produced by the direct convolution, and in the above right the coefficients remaining after a 2-tap decimation (every other sample).\relax }}{12}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.3}{\ignorespaces This table represents the convolution of $h[n]^+$ and $x[n]^+$.\relax }}{13}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.4}{\ignorespaces This table represents the convolution of $h[n]^-$ and $x[n]^-$.\relax }}{13}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.5}{\ignorespaces The table above shows how the coefficients of the separate convolutions are summed.\relax }}{13}}
+\@writefile{toc}{\contentsline {section}{\numberline {3.3}Coded Example}{14}}
