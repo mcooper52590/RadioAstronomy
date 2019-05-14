@@ -111,9 +111,28 @@ In this section, we have gone through the steps a signal takes after being measu
 \chapter{Polyphase Implementation}
 
 Up to this point, we have discussed the individual components that make up digital signal processing.  What, then, is a polyphase filter bank?  A polyphase filter bank (PFB) is a method of deconstructing the input signal and filter in order to more efficiently carry out the convolution-decimation process which was outlined above.  In a direct implementation, as will be shown below, several of the multipications and additions are unnecessary, as this data will be discarded during the decimation process.  The PFB allows one to avoid these extra calculations, thus limiting the amount of hardware needed, which is especially important when utilizing finite-space FPGA boards.
-
 \section{Theory}
+This section will rely heavily on (Schafer and Rabiner, 1973).  They begin by defining a series of bandpass filters as 
+\begin{equation}
+h_k(n) = h(n)cos(w_kn)
+\end{equation}
+where $\omega_k=\triangle\omega * k$, where $\triangle\omega$ is the distance between center frequencies of adjacent channels and k is an integer value.  The filter for the entire band is then
+\begin{equation}
+\widetilde{h}(n) = \sum_k^M h_k
+\end{equation}
 
+which, when substituted in, yields
+\begin{align}
+\widetilde{h}(n) = h(n)\sum_k^M cos(w_kN)
+& = h(n)d(n)
+\end{align}
+
+Schafer and Rabiner showed that if $\triangle \omega = \frac{2\pi}{NT}$, and $M = \frac{N-1}{2}$, where M is the number of channels, then 
+\begin{equation}
+d(n) = \frac{sin(\pi n)}{sin(\frac{\pi n}{N})}
+\end{equation}
+
+They go on to show that if one were to introduce a delay in d(n), they can remove phase echos which occur during the filtering process.  The relation to the implementation below is reasonable.  We split the filter and signal into subfilters and subsignals, as they have done with the channels.  We then time delay the filters relative to one another, as they show here, and as (Harris, 2003) shows.  In (Harris, 2003), this time delay is given as an unit delay, however.
 \section{2-tap Example}
 This section provides a mathematical walkthrough of a simple 2-tap polyphase implementation.  It suffices to exhibit the time delay which the second filter must have in order to recover the same output as the direction convolution-decimation. 
 In a direct computation of the convolution of a signal/filter pair, as shown in Figure 3.1, where the signal is $x[n] = \{x_0, x_1, x_2, x_3, x_4, x_5\}$, and the filter is $h[n] = \{h_0, h_1, h_2, h_3\}$, where the lengths are L=6 and M=4, respectively,
@@ -202,7 +221,146 @@ Now, we combine the results of these two separate convolutions, but as we saw in
 
 \section{Coded Example}
 
-Herein we present an example Python code which implements a polyphase decomposition on a Butterworth Filter which has been chosen so that the coefficients divide nicely.
+Herein we present an example Python code which implements a polyphase decomposition of an ideal lowpass filter.  For the filter, we used an ideal Butterworth lowpass filter from the Python scipy library, with the passband edge set at 10000 Hz and the stopband edge set at 11275 Hz, with maximum attentuation in the passband of .1 dB and minimum attenuation in the stopband of 50 dB.  This resulted in a 48th order filter.
+
+In order to demonstrate the polyphase implementation, we chose 3 separate signals.  The first signal contained thirty frequency components, separated by 100 Hz, ranging from 8 kHz to 11 kHz. The result of this is plotted in Figure 3.6.
+
+\begin{figure}[ht]
+\includegraphics[scale=.55]{Figure_6.pdf}
+\caption{(top) is an example of a direct implementation of the Butterworth filter using Scipy lfilter and the Fourier Transform of its output after decimation. (bottom) is the polyphase implementation of the same filter.}
+\end{figure} 
+
+Clearly, there is some attenuation loss in the passband that doesn't occur in the direct implementation. The reason for this can be speculated based on the theory from (Schafer and Rabiner, 1973), but was not definitively understood.  We do see, however, that the edge frequencies which fall off in the direct implementation are present in the polyphase implementation.  
+
+The second signal contained the same spacing as the first, but contained 33 components, placing the last component outside the passband.  The result of this is plotted in Figure 3.7.
+
+\begin{figure}[ht]
+\includegraphics[scale=.55]{Figure_8.pdf}
+\caption{(top) is an example of a direct implementation of the Butterworth filter using Scipy lfilter and the Fourier Transform of its output after decimation for the second signal. (bottom) is the polyphase implementation of the same filter for the second signal.}
+\end{figure} 
+
+Here we see something rather strange.  While the direct implementation attenuates signals in the stopband as it should, the polyphase implementation does not.  In fact, there is more power in the signal than there should be.  I'm assuming that this is an alias of the passband channel, otherwise there is a currently unknown error in the implementation.  
+
+The third signal demonstrates this even more completely, with 60 components, as shown in Figure 3.8.
+
+\begin{figure}[ht]
+\includegraphics[scale=.55]{Figure_7.pdf}
+\caption{(top) is an example of a direct implementation of the Butterworth filter using Scipy lfilter and the Fourier Transform of its output after decimation for the third signal. (bottom) is the polyphase implementation of the same filter for the third signal.}
+\end{figure} 
+
+This result is clearly not the anticipated result, since there are frequencies present in the stopband.  This strange result could have several causes.  The first, though unlikely, is how the impulse response of the Butterworth filter is recovered.  This was done by feeding the filter a unit impulse and utilizing the responses.  This may not be the correct method for recovering these coefficients.  The second possibility is that the frequencies in the stopband are actually aliases of the passband frequencies, as they only appear when frequencies higher than the passband frequency appear.  The third is, of course, I have misunderstood a basic aspect of the implementation of the filter bank method, most likely when implementing the time delays for the subconvolutions.  The Schafer and Rabiner paper from 1973 never specifies what a 'good' time delay is, but this implementation assumes a unit time delay, which is what the (Harris 2003) paper shows.  The fourth is that the implementation works fine, and I'm completely misunderstanding the output in these plots.  A more rigorous method would be to look at the frequency responses for each subfilter, as well as for the polyphase method.  Unfortunately, I didn't have time to learn how to accomplish this.  The Scipy library has a method for its built-in filters, but not for a generic set of impulse response coefficients.
+
+In an article on DSP-related (https://www.dsprelated.com/showarticle/191.php), the author mentions a necessary reordering of the coefficients in order to recover the proper alignment.  I did not take this into account, and after investigation of a 3-tap filter using the same process as the example in the section above, it turns out that the recovered coefficients (calculations have been attached) indeed do not match the direct convolution.  Figure 3.9 shows the above, but for a 2-tap implementation with the 60 component signal.  Indeed, the extra power in the stopband is not there. 
+
+\begin{figure}[ht]
+\includegraphics[scale=.55]{Figure_9.pdf}
+\caption{This is the examply using a 2-tap implementation instead.}
+\end{figure} 
+
+It is likely that there is another issue with the cadence of the signal-coefficient multiplications that I haven't taken into account, since the power should be equal for all frequencies, but there is an odd rolloff.  Unfortunately, I do not have the time to implement a correction, since the error is not completely understood to begin with.  Below is the code utilized in this process.
+
+\#--------------------------------------------------------------------------------------
+
+import scipy.signal as sig
+
+import numpy as np
+
+import matplotlib.pyplot as plt
+
+sin = np.sin
+
+cos = np.cos
+
+pi = np.pi
+
+zeros = np.zeros
+
+rand=np.random.rand
+
+fft = np.fft.fft
+
+def srand():
+
+  return rand()-rand()
+
+def cta(freq):
+
+    return 2*pi*freq
+    
+
+'''
+Create ideal lowpass filter of Butterworth type with order 48
+'''
+wNy = cta(fNy)
+
+ubp = cta(10000)/wNy
+
+ubs = cta(11275)/wNy
+
+N, Wn = sig.buttord(ubp, ubs, .1, 50, False)
+
+b, a = sig.butter(N, Wn, 'lowpass', False)
+
+l = len(b)
+
+impulse = np.repeat(0.,l); impulse[0] =1.
+
+x = np.arange(0,l)
+
+resp = sig.lfilter(b,a,impulse)
+
+\# Implementation of a polyphase downsampler
+
+M = 2
+
+N = 4096
+
+signal = FDMSig[:N,0]
  
+sbl = int(signal.shape[0]/M)
+
+sigBands = np.zeros([sbl,M])
+
+sigBands[:,0] = signal[::M]
+
+for i in range(1,M):
+
+    sigBands[:,M-i] = signal[i::M]
+
+fbl = int(resp.shape[0]/M)
+
+filtBands = np.zeros([fbl, M])
+
+for i in range(0,M):
+
+    filtBands[:,i] = resp[i::M]
+    
+subConv = np.zeros([sbl + fbl + (M-1), M])
+
+for i in range(0, M):
+
+    subConv[i:subConv.shape[0]-(M-i), i] = sig.convolve(sigBands[:,i], 
+    
+            filtBands[:,i], 'full', 'direct')
+            
+subConv = subConv.transpose()
+
+polyPhaseOut = subConv.sum(axis=0)
+
+'''
+Implementation of filtering, then downsampling
+'''
+
+filtSig = sig.lfilter(b, a, FDMSig[:,0])
+
+decFiltSig = filtSig[::M]
+
+\#-------------------------------------------------------------------------------------
+
+Here I have omitted the code used to create the signal.
+
+\chapter{Conclusion}
+
+Well, Dr. Gary, I gave it my best shot, and seemed to have come up short, though I believe I'll be able to correct this and have a functional implementation once I understand the coefficient re-ordering.  Hopefully I'll be able to ascertain the error in 
 
 \end{document}

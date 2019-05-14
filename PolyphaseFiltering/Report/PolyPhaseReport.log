@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2019.4.5)  13 MAY 2019 13:15
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2019.4.5)  14 MAY 2019 11:54
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -637,44 +637,77 @@ pdfTeX warning: pdflatex (file ./Figure_5.pdf): PDF inclusion: multiple pdfs wi
 th page group included in a single page
 >]
 Chapter 3.
+[11
 
-Overfull \hbox (3.9451pt too wide) in paragraph at lines 118--134
+]
+Overfull \hbox (3.9451pt too wide) in paragraph at lines 137--153
 []\OT1/cmr/m/n/10 This sec-tion pro-vides a math-e-mat-i-cal walk-through of a 
 sim-ple 2-tap polyphase
  []
 
-[11
-
-] [12]
-Overfull \hbox (41.38281pt too wide) in paragraph at lines 190--199
+[12] [13]
+Overfull \hbox (41.38281pt too wide) in paragraph at lines 209--218
  [] 
  []
 
-[13] [14] (./PolyPhaseReport.aux) ) 
+[14]
+<Figure_6.pdf, id=229, 565.53453pt x 295.61041pt>
+File: Figure_6.pdf Graphic file (type pdf)
+<use Figure_6.pdf>
+Package pdftex.def Info: Figure_6.pdf  used on input line 229.
+(pdftex.def)             Requested size: 311.04495pt x 162.58621pt.
+ [15 <./Figure_6.pdf>]
+<Figure_8.pdf, id=245, 565.53453pt x 295.61041pt>
+File: Figure_8.pdf Graphic file (type pdf)
+<use Figure_8.pdf>
+Package pdftex.def Info: Figure_8.pdf  used on input line 238.
+(pdftex.def)             Requested size: 311.04495pt x 162.58621pt.
+<Figure_7.pdf, id=246, 565.53453pt x 295.61041pt>
+File: Figure_7.pdf Graphic file (type pdf)
+<use Figure_7.pdf>
+Package pdftex.def Info: Figure_7.pdf  used on input line 247.
+(pdftex.def)             Requested size: 311.04495pt x 162.58621pt.
+ [16 <./Figure_8.pdf>]
+Overfull \hbox (20.834pt too wide) in paragraph at lines 253--254
+[]\OT1/cmr/m/n/10 In an ar-ti-cle on DSP-related (https://www.dsprelated.com/sh
+owarticle/191.php),
+ []
+
+[17 <./Figure_7.pdf>]
+<Figure_9.pdf, id=277, 565.53453pt x 295.61041pt>
+File: Figure_9.pdf Graphic file (type pdf)
+<use Figure_9.pdf>
+Package pdftex.def Info: Figure_9.pdf  used on input line 256.
+(pdftex.def)             Requested size: 311.04495pt x 162.58621pt.
+ [18 <./Figure_9.pdf>] [19] [20]
+Chapter 4.
+[21
+
+] (./PolyPhaseReport.aux) ) 
 Here is how much of TeX's memory you used:
- 3783 strings out of 494880
- 54185 string characters out of 6179602
- 117890 words of memory out of 5000000
- 7045 multiletter control sequences out of 15000+600000
+ 3803 strings out of 494880
+ 54597 string characters out of 6179602
+ 119890 words of memory out of 5000000
+ 7061 multiletter control sequences out of 15000+600000
  10547 words of font info for 38 fonts, out of 8000000 for 9000
  36 hyphenation exceptions out of 8191
- 41i,11n,39p,938b,272s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/share/texlive/texmf-dist/fonts/type1/p
-ublic/amsfonts/cm/cmbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/
-amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfon
-ts/cm/cmbx7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/c
-mex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.
-pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></u
-sr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/shar
-e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texli
-ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texlive/texm
-f-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/f
-onts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/t
-ype1/public/amsfonts/cm/cmsy7.pfb>
-Output written on PolyPhaseReport.pdf (15 pages, 251440 bytes).
+ 41i,11n,39p,1405b,272s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/share/texlive/texmf-dist/fonts/type1/public/am
+sfonts/cm/cmbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts
+/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cm
+bx7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pf
+b></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></us
+r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share
+/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texliv
+e/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf
+-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texlive/texmf-dist/f
+onts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/typ
+e1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/pub
+lic/amsfonts/cm/cmsy7.pfb>
+Output written on PolyPhaseReport.pdf (22 pages, 396389 bytes).
 PDF statistics:
- 268 PDF objects out of 1000 (max. 8388607)
- 100 compressed objects within 1 object stream
+ 343 PDF objects out of 1000 (max. 8388607)
+ 139 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
- 26 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 46 words of extra memory for PDF output out of 10000 (max. 10000000)
 
