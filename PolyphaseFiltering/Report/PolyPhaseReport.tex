@@ -239,7 +239,7 @@ The second signal contained the same spacing as the first, but contained 33 comp
 \caption{(top) is an example of a direct implementation of the Butterworth filter using Scipy lfilter and the Fourier Transform of its output after decimation for the second signal. (bottom) is the polyphase implementation of the same filter for the second signal.}
 \end{figure} 
 
-Here we see something rather strange.  While the direct implementation attenuates signals in the stopband as it should, the polyphase implementation does not.  In fact, there is more power in the signal than there should be.  I'm assuming that this is an alias of the passband channel, otherwise there is a currently unknown error in the implementation.  
+Here we see something rather strange.  While the direct implementation attenuates signals in the stopband as it should, the polyphase implementation does not.  In fact, there is more power in the stopband than there is in the passband.  This error has arisen due to a failure on my part to account for how the filter coefficients and signal would align during the convolution.  For reasons we show later on, it is likely that this is not the only error.
 
 The third signal demonstrates this even more completely, with 60 components, as shown in Figure 3.8.
 
@@ -248,7 +248,7 @@ The third signal demonstrates this even more completely, with 60 components, as 
 \caption{(top) is an example of a direct implementation of the Butterworth filter using Scipy lfilter and the Fourier Transform of its output after decimation for the third signal. (bottom) is the polyphase implementation of the same filter for the third signal.}
 \end{figure} 
 
-This result is clearly not the anticipated result, since there are frequencies present in the stopband.  This strange result could have several causes.  The first, though unlikely, is how the impulse response of the Butterworth filter is recovered.  This was done by feeding the filter a unit impulse and utilizing the responses.  This may not be the correct method for recovering these coefficients.  The second possibility is that the frequencies in the stopband are actually aliases of the passband frequencies, as they only appear when frequencies higher than the passband frequency appear.  The third is, of course, I have misunderstood a basic aspect of the implementation of the filter bank method, most likely when implementing the time delays for the subconvolutions.  The Schafer and Rabiner paper from 1973 never specifies what a 'good' time delay is, but this implementation assumes a unit time delay, which is what the (Harris 2003) paper shows.  The fourth is that the implementation works fine, and I'm completely misunderstanding the output in these plots.  A more rigorous method would be to look at the frequency responses for each subfilter, as well as for the polyphase method.  Unfortunately, I didn't have time to learn how to accomplish this.  The Scipy library has a method for its built-in filters, but not for a generic set of impulse response coefficients.
+This result is clearly not the anticipated result, since there are frequencies present in the stopband.  There could be several causes.  The first, though unlikely, is how the impulse response of the Butterworth filter is recovered.  This was done by feeding the filter a unit impulse and utilizing the responses.  This may not be the correct method for recovering these coefficients.  The second possibility is that the frequencies in the stopband are actually aliases of the passband frequencies, as they only appear when frequencies higher than the passband frequency appear.  The third is, of course, I have misunderstood a basic aspect of the implementation of the filter bank method, most likely when implementing the time delays for the subconvolutions.  The Schafer and Rabiner paper from 1973 never specifies what a 'good' time delay is, but this implementation assumes a unit time delay, which is what the (Harris 2003) paper shows.  The fourth is that the implementation works fine, and I'm completely misunderstanding the output in these plots.  A more rigorous method would be to look at the frequency responses for each subfilter, as well as for the polyphase method.  Unfortunately, I didn't have time to learn how to accomplish this.  The Scipy library has a method for its built-in filters, but not for a generic set of impulse response coefficients.
 
 In an article on DSP-related (https://www.dsprelated.com/showarticle/191.php), the author mentions a necessary reordering of the coefficients in order to recover the proper alignment.  I did not take this into account, and after investigation of a 3-tap filter using the same process as the example in the section above, it turns out that the recovered coefficients (calculations have been attached) indeed do not match the direct convolution.  Figure 3.9 shows the above, but for a 2-tap implementation with the 60 component signal.  Indeed, the extra power in the stopband is not there. 
 
@@ -361,6 +361,28 @@ Here I have omitted the code used to create the signal.
 
 \chapter{Conclusion}
 
-Well, Dr. Gary, I gave it my best shot, and seemed to have come up short, though I believe I'll be able to correct this and have a functional implementation once I understand the coefficient re-ordering.  Hopefully I'll be able to ascertain the error in 
+We've given a cursory introduction to the digital signal processing components utilized in the polyphase implementation, discussed briefly the theoretical background for why such an implementation is effective, and attempted a realized implementation, though there was a flaw in how the coefficients were aligned which led to errors in the power spectra.
+
+Well, Dr. Gary, I gave it my best shot, and seemed to have come up short, though I believe I'll be able to correct this and have a functional implementation once I understand the coefficient re-ordering.  I don't plan on giving up, though unfortunately I didn't have enough time to correct the error and turn in this report in time.  
+
+\newpage
+
+\textbf{Bibliography}
+
+F. J. Harris, C. Dick and M. Rice, "Digital receivers and transmitters using polyphase filter banks for wireless communications," in IEEE Transactions on Microwave Theory and Techniques, vol. 51, no. 4, pp. 1395-1412, April 2003.
+
+H. J. Landau, "Sampling, data transmission, and the Nyquist rate," in Proceedings of the IEEE, vol. 55, no. 10, pp. 1701-1706, Oct. 1967.
+doi: 10.1109/PROC.1967.5962
+
+J.H., Jr, Hammond,  Purington, E.S.. (1957). A History of Some Foundations of Modern Radio-Electronic Technology. Proceedings of the IRE. 45. 1191 - 1208. 10.1109/JRPROC.1957.278525. 
+
+L. C. Godara, "Introduction to "The heterodyne receiving system, and notes on the recent Arlington-Salem tests"," in Proceedings of the IEEE, vol. 87, no. 11, pp. 1975-1978, Nov. 1999.
+doi: 10.1109/JPROC.1999.796359
+
+Pal, Srikanta  J. Lancaster, Michael D. Norrod, Roger. (2012). HTS Bandstop Filter for Radio Astronomy. Microwave and Wireless Components Letters, IEEE. 22. 236-238. 10.1109/LMWC.2012.2193122. 
+
+R. W. Schafer and L. R. Rabiner, "A digital signal processing approach to interpolation," in Proceedings of the IEEE, vol. 61, no. 6, pp. 692-702, June 1973.
+doi: 10.1109/PROC.1973.9150
+
 
 \end{document}

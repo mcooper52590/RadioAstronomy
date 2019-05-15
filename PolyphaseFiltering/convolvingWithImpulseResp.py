@@ -37,8 +37,8 @@ tpad = np.linspace(-hpad*samSpc, spaceLen+(hpad*samSpc), sampleFreq*spaceLen+pad
 '''
 Create signal with 30 sine functions spaced by 200 Hz.
 '''
-comps = 60
-fbase = 8e3
+comps = 10
+fbase = 5e3
 sep = 100
 FDMSig = zeros([t.shape[0]+pad, comps + 1])
 FDMSigNoise = zeros([t.shape[0]+pad, comps + 1])
@@ -57,84 +57,95 @@ for i in range(1, 1 + comps):
 '''
 Create ideal lowpass filter of Butterworth type with order 48
 '''
-wNy = cta(fNy)
-ubp = cta(10000)/wNy
-ubs = cta(11275)/wNy
+ubp = 5000/fNy
+ubs = 7000/fNy
 
-N, Wn = sig.buttord(ubp, ubs, .1, 50, False)
+N, Wn = sig.buttord(ubp, ubs, .1, 37, False, fs=sampleFreq)
 b, a = sig.butter(N, Wn, 'lowpass', False)
-l = len(b)
+l = 10*len(b)
 impulse = np.repeat(0.,l); impulse[0] =1.
 x = np.arange(0,l)
 resp = sig.lfilter(b,a,impulse)
 
-
 '''
 Implementation of a polyphase downsampler
 '''
-M = 2
-N = 4096
-signal = FDMSig[:N,0] 
+M = 10
+N = 10*4096
+signal = FDMSig[500:N+500,0] 
 sbl = int(signal.shape[0]/M)
-sigBands = np.zeros([sbl,M])
-sigBands[:,0] = signal[::M]
+sigBands = np.zeros([sbl + 1,M])
+sigBands[:sbl,0] = signal[::M]
 for i in range(1,M):
-    sigBands[:,M-i] = signal[i::M]
+    sigBands[1:,M-i] = signal[i::M]
 
 fbl = int(resp.shape[0]/M)
 filtBands = np.zeros([fbl, M])
 for i in range(0,M):
     filtBands[:,i] = resp[i::M]
     
-subConv = np.zeros([sbl + fbl + (M-1), M])
+subConv = np.zeros([sbl+1, M])
 for i in range(0, M):
-    subConv[i:subConv.shape[0]-(M-i), i] = sig.convolve(sigBands[:,i], 
-            filtBands[:,i], 'full', 'direct')
-subConv = subConv.transpose()
-polyPhaseOut = subConv.sum(axis=0)
+    subConv[:, i] = sig.lfilter(filtBands[:,i], 1, sigBands[:,i])
+#subConv = subConv.transpose()
+polyphaseOut = np.sum(subConv, 1)
 #plt.plot(np.arange(0, 141,1), polyPhaseOut)
 
 '''
 Implementation of filtering, then downsampling
 '''
-filtSig = sig.lfilter(b, a, FDMSig[:,0])
+filtSig = sig.lfilter(resp, 1, FDMSig[500:N+500,0])
 decFiltSig = filtSig[::M]
 
+#plt.plot(np.arange(0,20,1), filtBands)
 #=========================================================================================
 fig, axes = plt.subplots(2, 2, sharex=False, sharey=False, figsize=(17,12), dpi=166)
 
 '''
 Plot FFT with filter implementation and decimation
 '''
-axes[0,0].plot(tpad[::M], decFiltSig, color='black', linewidth=.5)
+axes[0,0].plot(np.arange(0, 4096,1), decFiltSig, color='black', linewidth=.5)
 #axes[0,0].set_xlim(2.2,2.21)
 #axes[0,0].set_ylim(-2.2,2.2)
 axes[0,0].set_xticklabels([])
 axes[0,0].tick_params(bottom="off")
 
-fftSig = fft(decFiltSig[500:500+N])
-freqs = np.fft.fftfreq(decFiltSig[500:500+N].shape[0], d=samSpc*M)
-axes[0,1].plot(freqs, np.abs(fftSig), color='black', linewidth=.2)
+fftSig = fft(decFiltSig)
+freqs = np.fft.fftfreq(decFiltSig.shape[0], d=samSpc*M)
+hl = int(len(freqs)/2)
+axes[0,1].plot(freqs[:hl], np.abs(fftSig)[:hl], color='black', linewidth=.2)
+#axes[0,1].set_ylim(0,5000)
 #axes[0,1].set_yticklabels([])
 axes[0,1].tick_params(bottom="off")
-
 
 '''
 Plot polyphase output
 '''
-axes[1,0].plot(np.linspace(2.2,2.21, len(polyPhaseOut)), polyPhaseOut, 
+axes[1,0].plot(np.linspace(2.2,2.21, len(polyphaseOut)), polyphaseOut, 
     color='black', linewidth=.2)
 axes[1,0].set_xticklabels([])
 axes[1,0].tick_params(bottom="off")
 
-fftPolySig = fft(polyPhaseOut)
-freqsPoly = np.fft.fftfreq(polyPhaseOut.shape[0], d=samSpc*M)
-axes[1,1].plot(freqsPoly, np.abs(fftPolySig), color='black', linewidth=.5)
+fftPolySig = fft(polyphaseOut)
+freqsPoly = np.fft.fftfreq(polyphaseOut.shape[0], d=samSpc*M)
+hlpoly = int(len(freqsPoly)/2)
+axes[1,1].plot(freqsPoly[:hlpoly], np.abs(fftPolySig)[:hlpoly], color='black', linewidth=.5)
 #axes[1,1].set_yticklabels([])
 axes[1,1].tick_params(left="off")
 
 
-
+#fftSubs = zeros([freqsSub.shape[0], M])
+#for i in range(0, M):
+#    fftSubs[:,i] = fft(sigBands[:,i])
+#    axes[i].plot(freqsSub, np.real(fftSubs[:,i]))
+#axes[M].plot(freqsSub, np.sum(fftSubs, 1))
+    
+#sigFreqs1 = np.fft.fftfreq(sigBands.shape[0], d=samSpc*M)
+#sigFreqs2 = np.fft.fftfreq(subConv.shape[0], d=samSpc*M)
+#sigFFT1 = fft(sigBands[:,2])
+#sigFFT2 = fft(subConv[:,2])
+#plt.plot(sigFreqs1, np.real(sigFFT1))
+#plt.plot(sigFreqs2, np.real(sigFFT2))
 
 
 

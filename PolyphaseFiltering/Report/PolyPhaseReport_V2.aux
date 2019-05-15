@@ -1,0 +1,55 @@
+\relax 
+\providecommand\hyper@newdestlabel[2]{}
+\providecommand\HyperFirstAtBeginDocument{\AtBeginDocument}
+\HyperFirstAtBeginDocument{\ifx\hyper@anchor\@undefined
+\global\let\oldcontentsline\contentsline
+\gdef\contentsline#1#2#3#4{\oldcontentsline{#1}{#2}{#3}}
+\global\let\oldnewlabel\newlabel
+\gdef\newlabel#1#2{\newlabelxx{#1}#2}
+\gdef\newlabelxx#1#2#3#4#5#6{\oldnewlabel{#1}{{#2}{#3}}}
+\AtEndDocument{\ifx\hyper@anchor\@undefined
+\let\contentsline\oldcontentsline
+\let\newlabel\oldnewlabel
+\fi}
+\fi}
+\global\let\hyper@last\relax 
+\gdef\HyperFirstAtBeginDocument#1{#1}
+\providecommand\HyField@AuxAddToFields[1]{}
+\providecommand\HyField@AuxAddToCoFields[2]{}
+\@writefile{toc}{\contentsline {chapter}{\numberline {1}Introduction}{2}{chapter.1}}
+\@writefile{lof}{\addvspace {10\p@ }}
+\@writefile{lot}{\addvspace {10\p@ }}
+\@writefile{toc}{\contentsline {chapter}{\numberline {2}Fundamentals of Digital Signals}{4}{chapter.2}}
+\@writefile{lof}{\addvspace {10\p@ }}
+\@writefile{lot}{\addvspace {10\p@ }}
+\@writefile{toc}{\contentsline {section}{\numberline {2.1}Analog Vs. Digital}{4}{section.2.1}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2.1}{\ignorespaces Plotted above is an ideal signal which has had uncertainty introduced in its phase and amplitude profile.\relax }}{5}{figure.caption.2}}
+\@writefile{toc}{\contentsline {section}{\numberline {2.2}Analog Signal Sampling}{5}{section.2.2}}
+\@writefile{toc}{\contentsline {section}{\numberline {2.3}Downconversion}{6}{section.2.3}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2.2}{\ignorespaces (top) Signal $x_{in}$ in the time and frequency domain (middle) Signal $x_{lo}$ in time and frequency domain (bottom) Signal $x_{in}x_{lo}$ in the time and frequency domain\relax }}{7}{figure.caption.3}}
+\@writefile{toc}{\contentsline {section}{\numberline {2.4}Digital Signal Filters}{8}{section.2.4}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2.3}{\ignorespaces Plotted above is the frequency responses for a Butterworth filter of low-pass type. The y-axis indicated the attenuation (in dB) of the different frequency components. The first dashed line indicated the end of the pass-band, and the second is the beginning of the stop band.\relax }}{8}{figure.caption.4}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2.4}{\ignorespaces Plotted above is the impulse response, h[n], for a Butterworth filter of low-pass type. The y-axis indicated the coefficient value.\relax }}{10}{figure.caption.5}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2.5}{\ignorespaces (top) Downconverted signal and its Fourier Transform. (bottom) Downconverted and filtered signal and its Fourier Transform.\relax }}{10}{figure.caption.6}}
+\@writefile{toc}{\contentsline {section}{\numberline {2.5}Summary}{10}{section.2.5}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {3}Polyphase Implementation}{12}{chapter.3}}
+\@writefile{lof}{\addvspace {10\p@ }}
+\@writefile{lot}{\addvspace {10\p@ }}
+\@writefile{toc}{\contentsline {section}{\numberline {3.1}Theory}{12}{section.3.1}}
+\@writefile{toc}{\contentsline {section}{\numberline {3.2}2-tap Example}{13}{section.3.2}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.1}{\ignorespaces The above table represents the computations necessary to implement a direction convolution. Each column in the table is summed to create the $y_i$ coefficients at the bottom.\relax }}{14}{figure.caption.7}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.2}{\ignorespaces In the above left column are the coefficients produced by the direct convolution, and in the above right the coefficients remaining after a 2-tap decimation (every other sample).\relax }}{14}{figure.caption.8}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.3}{\ignorespaces This table represents the convolution of $h[n]^+$ and $x[n]^+$.\relax }}{15}{figure.caption.9}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.4}{\ignorespaces This table represents the convolution of $h[n]^-$ and $x[n]^-$.\relax }}{15}{figure.caption.10}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.5}{\ignorespaces The table above shows how the coefficients of the separate convolutions are summed.\relax }}{15}{figure.caption.11}}
+\@writefile{toc}{\contentsline {section}{\numberline {3.3}Coded Example}{16}{section.3.3}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.6}{\ignorespaces (top) is an example of a direct implementation of the Butterworth filter using Scipy lfilter and the Fourier Transform of its output after decimation for the first signal. (bottom) is the polyphase implementation of the same filter on the same signal.\relax }}{17}{figure.caption.12}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.7}{\ignorespaces Direct (top) vs. Polyphase (bottom) Implementation for second signal\relax }}{18}{figure.caption.13}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.8}{\ignorespaces Direct (top) vs. Polyphase (bottom) Implementation for third signal\relax }}{18}{figure.caption.14}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.9}{\ignorespaces Direct (top) vs. Polyphase (bottom) Implementation for fourth signal\relax }}{19}{figure.caption.15}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.10}{\ignorespaces Direct (top) vs. Polyphase (bottom) Implementation for fifth signal\relax }}{19}{figure.caption.16}}
+\@writefile{toc}{\contentsline {section}{\numberline {3.4}Discussion/Future Plans}{21}{section.3.4}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.11}{\ignorespaces Filter subbands for the 5-tap implementation.\relax }}{21}{figure.caption.17}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {4}Conclusion}{23}{chapter.4}}
+\@writefile{lof}{\addvspace {10\p@ }}
+\@writefile{lot}{\addvspace {10\p@ }}
