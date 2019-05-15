@@ -37,9 +37,9 @@ tpad = np.linspace(-hpad*samSpc, spaceLen+(hpad*samSpc), sampleFreq*spaceLen+pad
 '''
 Create signal with 30 sine functions spaced by 200 Hz.
 '''
-comps = 10
-fbase = 5e3
-sep = 100
+comps = 50
+fbase = 4e3
+sep = 20
 FDMSig = zeros([t.shape[0]+pad, comps + 1])
 FDMSigNoise = zeros([t.shape[0]+pad, comps + 1])
 for i in range(1, 1 + comps):
@@ -60,7 +60,7 @@ Create ideal lowpass filter of Butterworth type with order 48
 ubp = 5000/fNy
 ubs = 7000/fNy
 
-N, Wn = sig.buttord(ubp, ubs, .1, 37, False, fs=sampleFreq)
+N, Wn = sig.buttord(ubp, ubs, .1, 42, False)
 b, a = sig.butter(N, Wn, 'lowpass', False)
 l = 10*len(b)
 impulse = np.repeat(0.,l); impulse[0] =1.
@@ -70,8 +70,8 @@ resp = sig.lfilter(b,a,impulse)
 '''
 Implementation of a polyphase downsampler
 '''
-M = 10
-N = 10*4096
+M = 20
+N = 20*4096
 signal = FDMSig[500:N+500,0] 
 sbl = int(signal.shape[0]/M)
 sigBands = np.zeros([sbl + 1,M])
@@ -104,8 +104,8 @@ fig, axes = plt.subplots(2, 2, sharex=False, sharey=False, figsize=(17,12), dpi=
 '''
 Plot FFT with filter implementation and decimation
 '''
-axes[0,0].plot(np.arange(0, 4096,1), decFiltSig, color='black', linewidth=.5)
-#axes[0,0].set_xlim(2.2,2.21)
+axes[0,0].plot(np.linspace(2.2,2.21, len(decFiltSig)), decFiltSig, color='black', linewidth=.5)
+#axes[0,0].set_xlim(2.2,2.2008)
 #axes[0,0].set_ylim(-2.2,2.2)
 axes[0,0].set_xticklabels([])
 axes[0,0].tick_params(bottom="off")
@@ -123,6 +123,7 @@ Plot polyphase output
 '''
 axes[1,0].plot(np.linspace(2.2,2.21, len(polyphaseOut)), polyphaseOut, 
     color='black', linewidth=.2)
+#axes[1,0].set_xlim(2.2,2.2008)
 axes[1,0].set_xticklabels([])
 axes[1,0].tick_params(bottom="off")
 
